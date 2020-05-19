@@ -13,8 +13,8 @@ Feature: Espacio educativo
 
     Scenario Outline: Ingresar a la pagina
       When Ingreso a la pagina e ingresio mi "<correo>" y "<contrasenia>"
-      Then Valido el mensaje de "<>" para inicio de sesion
+      Then Valido el mensaje de "<validacion>" para inicio de sesion
 
       Examples:
-        | correo | contrasenia|
-      |alejandro2586@gmail.com|prueba1|
+      | correo | contrasenia|validacion|
+      |alejandro2586@gmail.com|prueba1|Usuario o contraseña invalidos|
