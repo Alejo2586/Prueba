@@ -1,6 +1,7 @@
 package co.com.pruebas.screenplay.stepdefinitions;
 
 
+import co.com.pruebas.screenplay.questions.MensajeInicioSesionEsperado;
 import co.com.pruebas.screenplay.tasks.PaginaDigitacionCodigos;
 import co.com.pruebas.screenplay.tasks.PaginaInicioCodigos;
 import cucumber.api.java.Before;
@@ -12,6 +13,7 @@ import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PaginaDigitacionCodigosStepDefinition {
 
@@ -30,14 +32,14 @@ public class PaginaDigitacionCodigosStepDefinition {
     }
 
 
-    @When("^Quiero dar muchos clicks$")
-    public void quieroDarMuchosClicks() {
-        user.wasAbleTo(PaginaDigitacionCodigos.laPaginaWeb());
+    @When("^Quiero dar muchos codigos para ganar \"([^\"]*)\"$")
+    public void quieroDarMuchosCodigosParaGanar(String dinero) {
+        user.wasAbleTo(PaginaDigitacionCodigos.laPaginaWeb(dinero));
     }
 
-    @Then("^Termino todo$")
-    public void terminoTodo() {
-
+    @Then("^Valido cantidad total \"([^\"]*)\"$")
+    public void terminoTodo(String dinero) {
+        user.should(seeThat(MensajeInicioSesionEsperado.esCorrecto(),equalTo(dinero)));
     }
 
 }

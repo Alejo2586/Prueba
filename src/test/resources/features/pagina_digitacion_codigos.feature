@@ -5,9 +5,9 @@ Feature: Sacar número según imagen
 
   Scenario Outline: Copiar codigo
     When Ingreso a la pagina para loguearme con "<usuario>" y "<contrasenia>"
-    When Quiero dar muchos clicks
-    Then Termino todo
+    When Quiero dar muchos codigos para ganar "<dolares>"
+    Then Valido cantidad total "<dolares>"
 
     Examples:
-      | usuario| contrasenia|
-      |prueba06|prueba06|
+      | usuario| contrasenia| dolares|
+      |prueba20|prueba20|250|

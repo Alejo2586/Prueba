@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.WebDriver;
 
-@DefaultUrl("https://aqmoney.club/")
+@DefaultUrl("https://ikimoney.club/")
 public class CodigosPage extends PageObject {
     public static final Target USERNAME = Target.the("Usuario").located(By.id("username"));
     public static final Target PASSWORD = Target.the("Contraseña").located(By.id("password"));

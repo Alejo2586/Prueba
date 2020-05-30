@@ -14,23 +14,28 @@ import java.util.List;
 public class PaginaDigitacionCodigos implements Task {
 
     private CodigosPage codigosPage;
+    private String dinero;
+
+    public PaginaDigitacionCodigos(String dinero){
+        this.dinero=dinero;
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.wasAbleTo(Click.on(codigosPage.START));
-
-        for(int i=0;i < 100000; i++) {
+        int cantidadCiclo= Integer.parseInt(dinero)*10;
+        for(int i=0;i < cantidadCiclo; i++) {
             List<WebElementFacade> primerNumero = codigosPage.IMAGEN1.resolveAllFor(actor);
             List<WebElementFacade> segundoNumero = codigosPage.IMAGEN2.resolveAllFor(actor);
             List<WebElementFacade> tercerNumero = codigosPage.IMAGEN3.resolveAllFor(actor);
-            String numeroEntero = primerNumero.get(0).getAttribute("src").substring(35, 36) + segundoNumero.get(0).getAttribute("src").substring(35, 36) + tercerNumero.get(0).getAttribute("src").substring(35, 36);
+            String numeroEntero = primerNumero.get(0).getAttribute("src").substring(36, 37) + segundoNumero.get(0).getAttribute("src").substring(36, 37) + tercerNumero.get(0).getAttribute("src").substring(36, 37);
             actor.wasAbleTo(Enter.theValue(numeroEntero).into(codigosPage.TEXTO));
             actor.wasAbleTo(Click.on(codigosPage.CONTINUE));
         }
 
     }
 
-    public static PaginaDigitacionCodigos laPaginaWeb(){
-        return Tasks.instrumented(PaginaDigitacionCodigos.class);
+    public static PaginaDigitacionCodigos laPaginaWeb(String dinero){
+        return Tasks.instrumented(PaginaDigitacionCodigos.class,dinero);
     }
 }
