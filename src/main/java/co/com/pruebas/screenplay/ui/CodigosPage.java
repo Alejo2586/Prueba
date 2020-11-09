@@ -18,4 +18,5 @@ public class CodigosPage extends PageObject {
     public static final Target TEXTO=Target.the("Texto").located(By.xpath("/html/body/div/div[2]/form/div[2]/input"));
     public static final Target CONTINUE=Target.the("Continuar").located(By.xpath("/html/body/div/div[2]/form/div[3]/input"));
     public static final Target MONEY_EARNED=Target.the("Dinero ganado").located(By.id("moneycount"));
+    public static final Target LOGOUT=Target.the("Continuar").located(By.xpath("/html/body/div/div[3]/div[1]/form/div[1]/table/tbody/tr[14]/td[1]/a/b/font/u"));
 }

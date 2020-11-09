@@ -2,6 +2,7 @@ package co.com.pruebas.screenplay.tasks;
 
 
 import co.com.pruebas.screenplay.ui.CodigosPage;
+import co.com.pruebas.screenplay.util.UtilidadTiempo;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -32,6 +33,8 @@ public class PaginaDigitacionCodigos implements Task {
             actor.wasAbleTo(Enter.theValue(numeroEntero).into(codigosPage.TEXTO));
             actor.wasAbleTo(Click.on(codigosPage.CONTINUE));
         }
+        actor.wasAbleTo(Click.on(codigosPage.LOGOUT));
+        UtilidadTiempo.esperar(3);
 
     }
 
