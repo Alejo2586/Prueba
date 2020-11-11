@@ -10,7 +10,7 @@ Feature: Sacar número según imagen
 
     Examples:
       | usuario| contrasenia| dolares|
-      |Alejo2586|Libertadores1989|1|
+      |Prueba01|Prueba01|1|
       |tester01|tester01|1|
       |tester02|tester02|1|
       |tester03|tester03|1|
